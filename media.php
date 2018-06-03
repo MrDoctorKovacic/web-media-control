@@ -21,11 +21,11 @@ foreach($output as $key => $item) {
             preg_match('/\"(.*?)\"/', $output[$key+1], $m2);
             if(empty($m2)) {
                 preg_match('/([0-9]*)$/', utf8_encode($output[$key+1]), $m2);
-                print_r($m2);
-                print_r($output[$key+1]);
+                //print_r($m2);
+                //print_r($output[$key+1]);
             }
 
-            $real_output[$m[1]] = $m2;
+            $real_output[$m[1]] = $m2[1];
 
             // Skip next value
             $onKey = False;
