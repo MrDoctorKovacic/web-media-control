@@ -65,8 +65,8 @@
       // Update UI with media object info
       function updateSongInfo(mediaObject) {
         console.log(mediaObject);
-        jQuery("#title").text(mediaObject[Title]);
-        jQuery("#artist").text(mediaObject[Artist]);
+        jQuery("#title").text(mediaObject->Title);
+        jQuery("#artist").text(mediaObject->Artist);
       }
     </script>
 
