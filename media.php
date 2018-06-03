@@ -12,7 +12,7 @@ foreach($output as $key => $item) {
     if (preg_match('~(["\'])([^"\']+)\1~', $item, $m)) {
         //print $m[1];
         //$item_parse = explode($item, " ");
-        array_push($m[1]);
+        array_push($real_output, $m[1]);
         //$real_output = $real_output[$item[2]];
     }
 }
