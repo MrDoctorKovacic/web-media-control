@@ -90,13 +90,13 @@
                 filter: "1",
                 searchType: "image",
                 q: searchQuery
-            }
+            }, async: false
         }).done(function(data) {
             console.log(data);
             var googleResults = data.items;
             console.log(data.items[0].link);
             return data.items[0].link;
-        }, async: false);
+        });
     }
     </script>
 
