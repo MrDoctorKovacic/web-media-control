@@ -18,6 +18,11 @@
     <style>
       body {
         padding-top: 54px;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: center;
       }
       #artist {
         font-style: italics;
@@ -70,11 +75,6 @@
         jQuery("#artist").text(mediaObject["Artist"]);
       }
 
-      function testFunc(test) {
-        console.log("test");
-        console.log(test);
-      }
-
       // Update album artwork. Adapted from aybalasubramanian's fiddle 
       // http://jsfiddle.net/aybalasubramanian/zpdseds7/
       function getAlbumArtwork(title, artist) {
@@ -90,14 +90,13 @@
                 filter: "1",
                 searchType: "image",
                 q: searchQuery
-            },
-            async: false
+            }
         }).done(function(data) {
             console.log(data);
             var googleResults = data.items;
             console.log(data.items[0].link);
             return data.items[0].link;
-        });
+        }, async: false);
     }
     </script>
 
