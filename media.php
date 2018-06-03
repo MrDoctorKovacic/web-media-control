@@ -9,7 +9,7 @@ $real_output = array();
 foreach($output as $key => $item) {
     if(strpos($item, "string") !== false ) {
         $item_parse = explode($item, " ");
-        $real_output[$output[$key+1]] = $real_output[$item[2]]
+        $real_output[$output[$key+1]] = $real_output[$item[2]];
     }
 }
 
