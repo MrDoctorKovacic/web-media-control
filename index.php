@@ -57,8 +57,13 @@
 
     <script>
       jQuery("#testBtn").on("click", function() {
-        $("#console .console-holder p").load('media.php');
+        $.getJSON('media.php', function(data) {
+          updateSongInfo(data);
+        }
       });
+      function updateSongInfo(mediaObject) {
+        console.log(mediaObject);
+      }
     </script>
 
   </body>

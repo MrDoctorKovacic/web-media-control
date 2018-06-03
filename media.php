@@ -1,6 +1,5 @@
 <?php
 // Controller for BT media
-ini_set('display_errors', 1);
 
 function getMediaInfo() {
     $output = array();
