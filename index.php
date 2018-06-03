@@ -90,7 +90,7 @@
             var googleResults = data.items;
             console.log(data.items[0].image.thumbnailLink);
         });
-
+/*
         function make_base_auth(user, password) {
             var tok = user + ':' + password;
             var hash = btoa(tok);
@@ -120,7 +120,7 @@
                     $("#result").append("<div class='result_item'><img src='" + imageURL + "' /></div>");
                 }
             })
-        });
+        });*/
     }
     </script>
 
