@@ -69,6 +69,11 @@
         jQuery("#artist").text(mediaObject["Artist"]);
       }
 
+      function testFunc(test) {
+        console.log("test");
+        console.log(test);
+      }
+
       // Update album artwork. Adapted from aybalasubramanian's fiddle 
       // http://jsfiddle.net/aybalasubramanian/zpdseds7/
       function getAlbumArtwork(title, artist) {
