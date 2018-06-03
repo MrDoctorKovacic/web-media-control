@@ -16,7 +16,7 @@ foreach($output as $key => $item) {
         if (preg_match('/\"(.*?)\"/', $item, $m)) {
 
             // Get the value if we've matched a key
-            preg_match('/\"(.*?)\"/', $output[$key+1], $m2) || preg_match('/variant uint32 (.*?)/', $output[$key+1], $m2);
+            preg_match('/\"(.*?)\"/', $output[$key+1], $m2) || preg_match('/\bvariant uint32\b (.*?)/', $output[$key+1], $m2);
 
             $real_output[$m[1]] = $m2;
 
