@@ -7,9 +7,11 @@ print_r($output);
 $real_output = array();
 
 foreach($output as $key => $item) {
-    if(strpos($item, "string") !== false ) {
-        $item_parse = explode($item, " ");
-        $real_output[$output[$key+1]] = $real_output[$item[2]];
+    if (preg_match('/"([^"]+)"/', $item, $m)) {
+        //print $m[1];
+        //$item_parse = explode($item, " ");
+        array_push($m[1]);
+        //$real_output = $real_output[$item[2]];
     }
 }
 
