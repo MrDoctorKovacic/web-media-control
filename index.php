@@ -70,7 +70,7 @@
       // Update UI with media object info
       function updateSongInfo(mediaObject) {
         console.log(mediaObject);
-        $("body").css("background-image", getAlbumArtwork(mediaObject["Title"], mediaObject["Artist"]));
+        $("body").css("background-image", "url("+getAlbumArtwork(mediaObject["Title"], mediaObject["Artist"]))+")";
         jQuery("#title").text(mediaObject["Title"]);
         jQuery("#artist").text(mediaObject["Artist"]);
       }
@@ -90,7 +90,7 @@
                 filter: "1",
                 searchType: "image",
                 q: searchQuery
-            }, async: false
+            }
         }).done(function(data) {
             console.log(data);
             var googleResults = data.items;
