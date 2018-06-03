@@ -59,7 +59,7 @@
       jQuery("#testBtn").on("click", function() {
         $.getJSON('media.php', function(data) {
           updateSongInfo(data);
-        }
+        });
       });
       function updateSongInfo(mediaObject) {
         console.log(mediaObject);
