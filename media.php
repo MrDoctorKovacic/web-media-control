@@ -19,7 +19,7 @@ foreach($output as $key => $item) {
             preg_match('/\"(.*?)\"/', $output[$key+1], $m2) || preg_match('/variant uint32 (.*?)/', $output[$key+1], $m);
             //print $m[1];
             //$item_parse = explode($item, " ");
-            $real_output[$m[1]] = $m2[1];
+            $real_output[$m[0]] = $m2[0];
         }
     } else {
         $onKey = True;
