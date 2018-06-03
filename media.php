@@ -22,6 +22,7 @@ foreach($output as $key => $item) {
             if(empty($m2)) {
                 preg_match('/^(variant uint32) (.*?)$/', $output[$key+1], $m2);
                 print_r($m2);
+                print_r($output[$key+1]);
             }
 
             $real_output[$m[1]] = $m2;
