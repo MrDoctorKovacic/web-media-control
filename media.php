@@ -9,7 +9,7 @@ print_r($output);
 $real_output = array();
 
 foreach($output as $key => $item) {
-    if (preg_match('~(["\'])([^"\']+)\1~', $item, $m)) {
+    if (preg_match('/("")/', $item, $m)) {
         //print $m[1];
         //$item_parse = explode($item, " ");
         array_push($real_output, $m[1]);
