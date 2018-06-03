@@ -73,7 +73,7 @@
       // http://jsfiddle.net/aybalasubramanian/zpdseds7/
       function getAlbumArtwork(title, artist) {
         var searchQuery = title+" "+artist+" album cover";
-
+        console.log(searchQuery);
         $.ajax({
             type: "GET",
             dataType: "jsonp",
