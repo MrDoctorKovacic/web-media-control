@@ -8,7 +8,7 @@ exec("dbus-send --system --print-reply --type=method_call --dest=org.bluez /org/
 print_r($output);
 $real_output = array();
 
-$OnKey = True;
+$onKey = True;
 foreach($output as $key => $item) {
 
     // Only get keys, skip values of this weird array
@@ -22,7 +22,7 @@ foreach($output as $key => $item) {
             $real_output[$m[1]] = $m2;
         }
     } else {
-        $OnKey = True;
+        $onKey = True;
     }
 }
 
