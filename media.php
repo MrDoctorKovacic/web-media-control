@@ -40,7 +40,7 @@ function getMediaInfo() {
 switch ($_GET["command"]) {
     case "info":
     default:
-        print(getMediaInfo());
+        echo(getMediaInfo());
         break;
 }
 
