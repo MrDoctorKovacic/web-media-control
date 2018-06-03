@@ -68,6 +68,60 @@
         jQuery("#title").text(mediaObject["Title"]);
         jQuery("#artist").text(mediaObject["Artist"]);
       }
+
+      // Update album artwork. Adapted from aybalasubramanian's fiddle 
+      // http://jsfiddle.net/aybalasubramanian/zpdseds7/
+      function getAlbumArtwork(title, artist) {
+        var searchQuery = title+" "+artist+" album cover";
+
+        $.ajax({
+            type: "GET",
+            dataType: "jsonp",
+            url: "https://www.googleapis.com/customsearch/v1",
+            data: {
+                key: "AIzaSyCzb6SI_JRrp6xLLYV617Ary6n59h36ros",
+                cx: "004286675445984025592:ypgpkv9fjd4",
+                filter: "1",
+                searchType: "image",
+                q: searchQuery
+            }
+        }).done(function(data) {
+            console.log(data);
+            var googleResults = data.items;
+            console.log(data.items[0].image.thumbnailLink);
+        });
+
+        function make_base_auth(user, password) {
+            var tok = user + ':' + password;
+            var hash = btoa(tok);
+            return "Basic " + hash;
+        }
+        $.ajax({
+            type: "GET",
+            dataType: "json",
+            url: "https://api.datamarket.azure.com/Bing/Search/v1/Image",
+            beforeSend: function(xhr) {
+                xhr.setRequestHeader("Authorization", make_base_auth("", "GfsqxTjDPIKNuXQZDeqj2z4uaaHNx9X0QhKYBn4Xgeg="));
+            },
+            data: {
+                Query: "'" + searchQuery + "'",
+            }
+        }).done(function(data) {
+            //alert("Success");
+            console.log(data);
+            var bingResults = data.d.results;
+            $(".result li").remove();
+            //$('#result').isotope('destroy');
+            $.each(bingResults, function(i, o) {
+                var imageURL = o.Thumbnail.MediaUrl;
+                if (i % 2 != 0) {
+                    $("#result").append("<div class='result_item'><img src='" + imageURL + "' /></div>");
+                } else {
+                    $("#result").append("<div class='result_item'><img src='" + imageURL + "' /></div>");
+                }
+            })
+        });
+    }
     </script>
 
   </body>
