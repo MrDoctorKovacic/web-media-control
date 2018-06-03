@@ -8,12 +8,21 @@ exec("dbus-send --system --print-reply --type=method_call --dest=org.bluez /org/
 print_r($output);
 $real_output = array();
 
+$OnKey = True;
 foreach($output as $key => $item) {
-    if (preg_match('/\"(.*?)\"/', $item, $m)) {
-        //print $m[1];
-        //$item_parse = explode($item, " ");
-        array_push($real_output, $m[1]);
-        //$real_output = $real_output[$item[2]];
+
+    // Only get keys, skip values of this weird array
+    if($onKey) {
+        if (preg_match('/\"(.*?)\"/', $item, $m)) {
+
+            // Get the value if we've matched a key
+            preg_match('/\"(.*?)\"/', $output[$key+1], $m2) || preg_match('/variant uint32 (.*?)\/', $output[$key+1], $m);
+            //print $m[1];
+            //$item_parse = explode($item, " ");
+            $real_output[$m[1]] = $m2;
+        }
+    } else {
+        $OnKey = True;
     }
 }
 
