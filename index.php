@@ -65,6 +65,7 @@
       // Update UI with media object info
       function updateSongInfo(mediaObject) {
         console.log(mediaObject);
+        $("body").css("background-image", getAlbumArtwork(mediaObject["Title"], mediaObject["Artist"]));
         jQuery("#title").text(mediaObject["Title"]);
         jQuery("#artist").text(mediaObject["Artist"]);
       }
@@ -89,43 +90,14 @@
                 filter: "1",
                 searchType: "image",
                 q: searchQuery
-            }
+            },
+            async: false
         }).done(function(data) {
             console.log(data);
             var googleResults = data.items;
-            console.log(data.items[0].image.thumbnailLink);
+            console.log(data.items[0].link);
+            return data.items[0].link;
         });
-/*
-        function make_base_auth(user, password) {
-            var tok = user + ':' + password;
-            var hash = btoa(tok);
-            return "Basic " + hash;
-        }
-        $.ajax({
-            type: "GET",
-            dataType: "json",
-            url: "https://api.datamarket.azure.com/Bing/Search/v1/Image",
-            beforeSend: function(xhr) {
-                xhr.setRequestHeader("Authorization", make_base_auth("", "GfsqxTjDPIKNuXQZDeqj2z4uaaHNx9X0QhKYBn4Xgeg="));
-            },
-            data: {
-                Query: "'" + searchQuery + "'",
-            }
-        }).done(function(data) {
-            //alert("Success");
-            console.log(data);
-            var bingResults = data.d.results;
-            $(".result li").remove();
-            //$('#result').isotope('destroy');
-            $.each(bingResults, function(i, o) {
-                var imageURL = o.Thumbnail.MediaUrl;
-                if (i % 2 != 0) {
-                    $("#result").append("<div class='result_item'><img src='" + imageURL + "' /></div>");
-                } else {
-                    $("#result").append("<div class='result_item'><img src='" + imageURL + "' /></div>");
-                }
-            })
-        });*/
     }
     </script>
 
