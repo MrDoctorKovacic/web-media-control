@@ -19,6 +19,9 @@
       body {
         padding-top: 54px;
       }
+      #artist {
+        font-style: italics;
+      }
       @media (min-width: 992px) {
         body {
           padding-top: 56px;
@@ -35,12 +38,8 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12 text-center">
-          <h1 class="mt-5">A Bootstrap 4 Starter Template</h1>
-          <p class="lead">Complete with pre-defined file paths and responsive navigation!</p>
-          <ul class="list-unstyled">
-            <li>Bootstrap 4.1.1</li>
-            <li>jQuery 3.3.1</li>
-          </ul>
+          <h1 class="mt-5" id="title">A Bootstrap 4 Starter Template</h1>
+          <p class="lead" id="artist">Complete with pre-defined file paths and responsive navigation!</p>
           <button id="testBtn"></button>
         </div>
       </div>
@@ -56,13 +55,18 @@
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <script>
+      // Get song info
       jQuery("#testBtn").on("click", function() {
         $.getJSON('media.php', function(data) {
           updateSongInfo(data);
         });
       });
+
+      // Update UI with media object info
       function updateSongInfo(mediaObject) {
         console.log(mediaObject);
+        jQuery("#title").text(mediaObject[Title]);
+        jQuery("#artist").text(mediaObject[Artist]);
       }
     </script>
 
