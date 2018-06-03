@@ -16,10 +16,11 @@ foreach($output as $key => $item) {
         if (preg_match('/\"(.*?)\"/', $item, $m)) {
 
             // Get the value if we've matched a key
-            preg_match('/\"(.*?)\"/', $output[$key+1], $m2) || preg_match('/variant uint32 (.*?)/', $output[$key+1], $m);
-            //print $m[1];
-            //$item_parse = explode($item, " ");
+            preg_match('/\"(.*?)\"/', $output[$key+1], $m2) || preg_match('/variant uint32 (.*?)/', $output[$key+1], $m2);
             $real_output[$m[0]] = $m2[0];
+
+            // Skip next value
+            $onKey = False;
         }
     } else {
         $onKey = True;
