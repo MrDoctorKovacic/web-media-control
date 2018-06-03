@@ -34,7 +34,7 @@ $path = getcwd();
 $albums = array();
 $images = 0;
 $dvdalbum = 0;
-$sorder = array("buy", "walmart", "amazon");
+$sorder = array("walmart", "amazon");
 $prog = basename($argv[0]);
 
 # Check for arguments
