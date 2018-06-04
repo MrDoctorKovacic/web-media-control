@@ -86,12 +86,19 @@
       var album = "";
       var artist = "";
 
-      // Get song info
+      setInterval(triggerSongUpdate, 1000);
+
+      // Force update before interval
       jQuery("#testBtn").on("click", function() {
+        triggerSongUpdate();
+      });
+
+      // Get song info
+      function triggerSongUpdate() {
         $.getJSON('media.php', function(data) {
           updateSongInfo(data);
         });
-      });
+      }
 
       // Update UI with media object info
       function updateSongInfo(mediaObject) {
