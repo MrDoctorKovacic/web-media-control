@@ -57,6 +57,13 @@
         }
       }
 
+      .push:hover{
+        animation: pulse .3s ease-in 1;
+      }
+      @keyframes push{
+        50%  {transform: scale(0.8);}
+      }
+
     </style>
 
   </head>
@@ -76,13 +83,13 @@
         <div class="col-lg-10 col-lg-offset-1">
           <div class="row">
           <div class="col-4">
-            <h2><i class="fa fa-2x fa-backward"></i></h2>
+            <h2><i class="fa fa-2x fa-backward push"></i></h2>
           </div>
           <div class="col-4">
-            <h2><i class="fa fa-2x fa-pause"></i></h2>
+            <h2><i class="fa fa-2x fa-pause push"></i></h2>
           </div>
           <div class="col-4">
-            <h2><i class="fa fa-2x fa-forward"></i></h2>
+            <h2><i class="fa fa-2x fa-forward push"></i></h2>
           </div>
           </div>
         </div>
@@ -105,8 +112,36 @@
       setInterval(triggerSongUpdate, 1000);
 
       // Force update before interval
-      jQuery(".fa.fa-trigger").on("click", function() {
+      jQuery(".fa.push").on("click", function() {
         triggerSongUpdate();
+      });
+
+      // Previous Track
+      jQuery(".fa-backward").on("click", function() {
+        $.getJSON('media.php?command=prevTrack', function(data) {
+          console.log(data);
+        });
+      });
+
+      // Next track
+      jQuery(".fa-forward").on("click", function() {
+        $.getJSON('media.php?command=nextTrack', function(data) {
+          console.log(data);
+        });
+      });
+
+      // Pause song
+      jQuery(".fa-pause").on("click", function() {
+        $.getJSON('media.php?command=pause', function(data) {
+          console.log(data);
+        });
+      });
+
+      // Play song
+      jQuery(".fa-play").on("click", function() {
+        $.getJSON('media.php?command=play', function(data) {
+          console.log(data);
+        });
       });
 
       // Get song info
