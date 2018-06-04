@@ -35,9 +35,17 @@
         width: 100%;
         height: 100%;
         background-color: rgba(0, 0, 0, 0.3);
+        z-index: -1;
       }
       h1, p {
         font-size: 3.5em;
+      }
+      .center-absolute {
+        text-align: center!important;
+        position: absolute;
+        top: 40%;
+        transform: translateY(-50%);
+        left: 0;
       }
       #artist {
         font-style: italics;
@@ -57,7 +65,7 @@
     <!-- Page Content -->
     <div class="container">
       <div class="row">
-        <div class="col-lg-12 text-center">
+        <div class="col-lg-12 text-center center-absolute">
           <h1 id="title">A Bootstrap 4 Starter Template</h1>
           <p class="lead" id="artist">Complete with pre-defined file paths and responsive navigation!</p>
           <button id="testBtn"></button>
