@@ -59,7 +59,7 @@
         }
       }
 
-      .push:hover{
+      .push:focus{
         animation: push .5s ease-in 1;
       }
       @keyframes push{
