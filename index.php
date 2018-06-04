@@ -21,8 +21,11 @@
         position: absolute;
         width: 100%;
         height: 100%;
+        background-color: #0a0a0a;
         background-size: cover;
         background-position: center center;
+        background-repeat: no-repeat;
+        color: #fff;
       }
       #artist {
         font-style: italics;
@@ -95,10 +98,7 @@
             console.log(data);
             var googleResults = data.items;
             itemIndex = 0;
-            $("body").css("background-image", "url("+data.items[itemIndex].link+")");
-            $('img').error(function(){
-              $("body").css("background-image", "url("+data.items[itemIndex++].link+")");
-            });
+            $("body").css("background-image", "linear-gradient( rgba(0,0,0,.5), rgba(0,0,0,.5) ), url("+data.items[itemIndex].link+")");
         });
     }
     </script>
