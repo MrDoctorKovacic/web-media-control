@@ -96,7 +96,7 @@
             var googleResults = data.items;
             $.each(googleResults, function(i, o) {
               $.ajax({
-                url  : o,
+                url  : o.link,
                 type : 'post'
               }).done(function(data, statusText, xhr){
                 if(xhr.status == 200) {
