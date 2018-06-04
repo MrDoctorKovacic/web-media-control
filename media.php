@@ -60,10 +60,10 @@ function prevTrack() {
 }
 
 switch ($_GET["command"]) {
-    case "next":
+    case "nextTrack":
         echo(nextTrack());
         break;
-    case "prev":
+    case "prevTrack":
         echo(prevTrack());
         break;
     case "info":

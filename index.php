@@ -58,7 +58,7 @@
       }
 
       .push:hover{
-        animation: pulse .3s ease-in 1;
+        animation: push .3s ease-in 1;
       }
       @keyframes push{
         50%  {transform: scale(0.8);}
