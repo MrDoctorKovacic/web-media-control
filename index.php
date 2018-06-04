@@ -99,9 +99,9 @@
         if(mediaObject["Artist"] !== artist || mediaObject["Album"] !== album) {
           getAlbumArtwork(mediaObject["Album"], mediaObject["Artist"]);
         }
-        
+
         album = mediaObject["Album"];
-        arist = mediaObject["Title"];
+        arist = mediaObject["Artist"];
         jQuery("#title").text(mediaObject["Title"]);
         jQuery("#artist").text(mediaObject["Artist"]);
       }
