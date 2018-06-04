@@ -86,13 +86,13 @@
       <div class="row justify-content-center">
         <div class="col-lg-10 col-lg-offset-1">
           <div class="row">
-          <div class="col-4">
+          <div class="col-3">
             <h2><i class="fa fa-2x fa-backward push"></i></h2>
           </div>
-          <div class="col-4">
+          <div class="col-3">
             <h2><i class="fa fa-2x fa-pause push"></i></h2>
           </div>
-          <div class="col-4">
+          <div class="col-3">
             <h2><i class="fa fa-2x fa-forward push"></i></h2>
           </div>
           </div>
