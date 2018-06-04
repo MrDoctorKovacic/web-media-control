@@ -70,15 +70,15 @@
       // Update UI with media object info
       function updateSongInfo(mediaObject) {
         console.log(mediaObject);
-        getAlbumArtwork(mediaObject["Title"], mediaObject["Artist"]);
+        getAlbumArtwork(mediaObject["Album"], mediaObject["Artist"]);
         jQuery("#title").text(mediaObject["Title"]);
         jQuery("#artist").text(mediaObject["Artist"]);
       }
 
       // Update album artwork. Adapted from aybalasubramanian's fiddle 
       // http://jsfiddle.net/aybalasubramanian/zpdseds7/
-      function getAlbumArtwork(title, artist) {
-        var searchQuery = title+" "+artist+" album cover";
+      function getAlbumArtwork(album, artist) {
+        var searchQuery = album+" "+artist+" cover";
         console.log(searchQuery);
         $.ajax({
             type: "GET",
@@ -94,17 +94,10 @@
         }).done(function(data) {
             console.log(data);
             var googleResults = data.items;
-            $.each(googleResults, function(i, o) {
-              $.ajax({
-                url  : o.link,
-                type : 'post'
-              }).done(function(data, statusText, xhr){
-                if(xhr.status == 200) {
-                  console.log(data.items[0].link);
-                  $("body").css("background-image", "url("+data.items[0].link+")");
-                  return;
-                }
-              });
+            itemIndex = 0;
+            $("body").css("background-image", "url("+data.items[itemIndex].link+")");
+            $('img').error(function(){
+              $("body").css("background-image", "url("+data.items[itemIndex++].link+")");
             });
         });
     }
