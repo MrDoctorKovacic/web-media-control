@@ -94,8 +94,18 @@
         }).done(function(data) {
             console.log(data);
             var googleResults = data.items;
-            console.log(data.items[0].link);
-            $("body").css("background-image", "url("+data.items[0].link+")");
+            $.each(googleResults, function(i, o) {
+              $.ajax({
+                url  : o,
+                type : 'post'
+              }).done(function(data, statusText, xhr){
+                if(xhr.status == 200) {
+                  console.log(data.items[0].link);
+                  $("body").css("background-image", "url("+data.items[0].link+")");
+                  return;
+                }
+              });
+            });
         });
     }
     </script>
