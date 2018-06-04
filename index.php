@@ -98,13 +98,11 @@
         console.log(mediaObject);
         if(mediaObject["Artist"] !== artist || mediaObject["Album"] !== album) {
           console.log("Refreshing Album Artwork");
-          console.log(mediaObject["Artist"]+ " " + artist);
-          console.log(mediaObject["Album"]+ " " + album);
           getAlbumArtwork(mediaObject["Album"], mediaObject["Artist"]);
         }
 
         album = mediaObject["Album"];
-        arist = mediaObject["Artist"];
+        artist = mediaObject["Artist"];
         jQuery("#title").text(mediaObject["Title"]);
         jQuery("#artist").text(mediaObject["Artist"]);
       }
