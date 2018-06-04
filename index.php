@@ -44,7 +44,7 @@
       .center-absolute {
         text-align: center !important;
         position: absolute;
-        top: 40%;
+        top: 50%;
         transform: translate(-50%, -50%);
         left: 50%;
         width: 100%;
@@ -59,7 +59,7 @@
         }
       }
 
-      .push:focus{
+      .push:active{
         animation: push .5s ease-in 1;
       }
       @keyframes push{
