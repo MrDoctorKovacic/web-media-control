@@ -83,6 +83,9 @@
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <script>
+      var album = "";
+      var artist = "";
+
       // Get song info
       jQuery("#testBtn").on("click", function() {
         $.getJSON('media.php', function(data) {
@@ -93,7 +96,12 @@
       // Update UI with media object info
       function updateSongInfo(mediaObject) {
         console.log(mediaObject);
-        getAlbumArtwork(mediaObject["Album"], mediaObject["Artist"]);
+        if(mediaObject["Artist"] !== artist || mediaObject["Album"] !== album) {
+          getAlbumArtwork(mediaObject["Album"], mediaObject["Artist"]);
+        }
+        
+        album = mediaObject["Album"];
+        arist = mediaObject["Title"];
         jQuery("#title").text(mediaObject["Title"]);
         jQuery("#artist").text(mediaObject["Artist"]);
       }
