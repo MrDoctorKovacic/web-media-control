@@ -64,9 +64,9 @@
   <body>
 
     <!-- Page Content -->
-    <div class="container">
+    <div class="container center-absolute">
       <div class="row">
-        <div class="col-lg-12 text-center center-absolute">
+        <div class="col-lg-12 text-center">
           <h1 id="title">Nothing Playing</h1>
           <p class="lead" id="artist"></p>
           <button id="testBtn"></button>
