@@ -70,7 +70,7 @@
       // Update UI with media object info
       function updateSongInfo(mediaObject) {
         console.log(mediaObject);
-        $("body").css("background-image", "url("+getAlbumArtwork(mediaObject["Title"], mediaObject["Artist"]))+")";
+        getAlbumArtwork(mediaObject["Title"], mediaObject["Artist"]);
         jQuery("#title").text(mediaObject["Title"]);
         jQuery("#artist").text(mediaObject["Artist"]);
       }
@@ -95,6 +95,7 @@
             console.log(data);
             var googleResults = data.items;
             console.log(data.items[0].link);
+            $("body").css("background-image", "url("+data.items[0].link+")";
             return data.items[0].link;
         });
     }
