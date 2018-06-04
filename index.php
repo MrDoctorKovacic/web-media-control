@@ -90,7 +90,7 @@
                 filter: "1",
                 searchType: "image",
                 q: searchQuery
-            }
+            }, async: false
         }).done(function(data) {
             console.log(data);
             var googleResults = data.items;
