@@ -22,7 +22,7 @@
         width: 100%;
         height: 100%;
         background-size: cover;
-        background-position: center;
+        background-position: center center;
       }
       #artist {
         font-style: italics;
@@ -95,8 +95,7 @@
             console.log(data);
             var googleResults = data.items;
             console.log(data.items[0].link);
-            $("body").css("background-image", "url("+data.items[0].link+")";
-            return data.items[0].link;
+            $("body").css("background-image", "url("+data.items[0].link+")");
         });
     }
     </script>
