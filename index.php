@@ -119,9 +119,10 @@
       jQuery(".fa.push").on("click", function() {
         triggerSongUpdate();
         $(this).toggleClass("pushed");
+        var button = $(this);
         setTimeout(function(){
-          $(this).toggleClass("pushed");
-        }, 500)
+          button.toggleClass("pushed");
+        }, 400)
       });
 
       // Previous Track
