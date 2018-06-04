@@ -27,6 +27,15 @@
         background-repeat: no-repeat;
         color: #fff;
       }
+      body:after {
+        content:"";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+      }
       #artist {
         font-style: italics;
       }
@@ -98,7 +107,7 @@
             console.log(data);
             var googleResults = data.items;
             itemIndex = 0;
-            $("body").css("background-image", "linear-gradient( rgba(0,0,0,.5), rgba(0,0,0,.5) ), url("+data.items[itemIndex].link+")");
+            $("body").css("background-image", "url("+data.items[itemIndex].link+")");
         });
     }
     </script>
