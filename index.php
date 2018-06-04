@@ -59,6 +59,9 @@
         }
       }
 
+      .push {
+
+      }
       .push:active{
         animation: push .5s ease-in 1;
       }
@@ -76,8 +79,8 @@
     <div class="container center-absolute">
       <div class="row">
         <div class="col-lg-12 text-center">
-          <h1 id="title">Nothing Playing</h1>
           <p class="lead" id="artist"></p>
+          <h1 id="title">Nothing Playing</h1>
         </div>
       </div>
       <div class="row justify-content-center">
@@ -115,6 +118,7 @@
       // Force update before interval
       jQuery(".fa.push").on("click", function() {
         triggerSongUpdate();
+        $(this).style.animation = "push .5s ease-in 1";
       });
 
       // Previous Track
