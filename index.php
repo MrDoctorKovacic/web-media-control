@@ -187,7 +187,6 @@
             var googleResults = data.items;
             itemIndex = 0;
             $("body").css("background-image", "url("+data.items[itemIndex].link+")");
-            $(".container").css("background-image", "url("+data.items[itemIndex].link+")");
         });
     }
     </script>
