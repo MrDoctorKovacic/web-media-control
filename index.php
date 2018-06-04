@@ -45,8 +45,9 @@
         text-align: center!important;
         position: absolute;
         top: 40%;
-        transform: translateY(-50%);
-        left: 0;
+        transform: translate(-50%, -50%);
+        left: 50%;
+        width: 100%;
       }
       #artist {
         font-style: italics;
@@ -58,7 +59,7 @@
       }
 
       .push:hover{
-        animation: push .3s ease-in 1;
+        animation: push .5s ease-in 1;
       }
       @keyframes push{
         50%  {transform: scale(0.8);}
