@@ -24,7 +24,7 @@
         height: 100%;
         background-color: #0a0a0a;
         background-size: cover;
-        background-position: center center;
+        background-position: top;
         background-repeat: no-repeat;
         color: #fff;
       }
@@ -42,7 +42,7 @@
         font-size: 3.5em;
       }
       .center-absolute {
-        text-align: center!important;
+        text-align: center !important;
         position: absolute;
         top: 40%;
         transform: translate(-50%, -50%);
@@ -51,6 +51,7 @@
       }
       #artist {
         font-style: italics;
+        margin-bottom: 40px;
       }
       @media (min-width: 992px) {
         body {
@@ -77,7 +78,6 @@
         <div class="col-lg-12 text-center">
           <h1 id="title">Nothing Playing</h1>
           <p class="lead" id="artist"></p>
-          <button id="testBtn"></button>
         </div>
       </div>
       <div class="row justify-content-center">
@@ -187,6 +187,7 @@
             var googleResults = data.items;
             itemIndex = 0;
             $("body").css("background-image", "url("+data.items[itemIndex].link+")");
+            $(".container").css("background-image", "url("+data.items[itemIndex].link+")");
         });
     }
     </script>
