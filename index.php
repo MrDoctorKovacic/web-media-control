@@ -183,7 +183,8 @@
             dataType: "jsonp",
             url: "https://www.googleapis.com/customsearch/v1",
             data: {
-                key: "AIzaSyBnT9sw1Oyhc0hLOCaiC1BDSeh4lip_CmI",
+                key: "AIzaSyBkLyJ_C764-xzcMNomj5YUOI-jqzCoVgo",
+                cx: "004286675445984025592:ypgpkv9fjd4",
                 filter: "1",
                 searchType: "image",
                 q: searchQuery
