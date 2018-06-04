@@ -73,14 +73,14 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-xs-10 col-xs-offset-1">
-          <div class="col-xs-4">
+        <div class="col-lg-10 col-lg-offset-1">
+          <div class="col-lg-4">
             <h2><i class="fa fa-2x fa-backward"></i></h2>
           </div>
-          <div class="col-xs-4">
+          <div class="col-lg-4">
             <h2><i class="fa fa-2x fa-pause"></i></h2>
           </div>
-          <div class="col-xs-4">
+          <div class="col-lg-4">
             <h2><i class="fa fa-2x fa-forward"></i></h2>
           </div>
         </div>
