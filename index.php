@@ -122,7 +122,7 @@
         var button = $(this);
         setTimeout(function(){
           button.toggleClass("pushed");
-        }, 400)
+        }, 500)
       });
 
       // Previous Track
