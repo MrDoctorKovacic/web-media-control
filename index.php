@@ -72,15 +72,15 @@
           <button id="testBtn"></button>
         </div>
       </div>
-      <div class="row">
+      <div class="row justify-content-center">
         <div class="col-lg-10 col-lg-offset-1">
-          <div class="col-lg-4">
+          <div class="col-sm">
             <h2><i class="fa fa-2x fa-backward"></i></h2>
           </div>
-          <div class="col-lg-4">
+          <div class="col-sm">
             <h2><i class="fa fa-2x fa-pause"></i></h2>
           </div>
-          <div class="col-lg-4">
+          <div class="col-sm">
             <h2><i class="fa fa-2x fa-forward"></i></h2>
           </div>
         </div>
