@@ -35,7 +35,37 @@ function getMediaInfo() {
     return json_encode($real_output);
 }
 
+function pause() {
+    $output = array();
+    exec("dbus-send --system --print-reply --type=method_call --dest=org.bluez /org/bluez/hci0/dev_4C_32_75_AD_98_24/player0 org.bluez.MediaPlayer1.Pause", $output);
+    return $output;
+}
+
+function play() {
+    $output = array();
+    exec("dbus-send --system --print-reply --type=method_call --dest=org.bluez /org/bluez/hci0/dev_4C_32_75_AD_98_24/player0 org.bluez.MediaPlayer1.Play", $output);
+    return $output;
+}
+
+function nextTrack() {
+    $output = array();
+    exec("dbus-send --system --print-reply --type=method_call --dest=org.bluez /org/bluez/hci0/dev_4C_32_75_AD_98_24/player0 org.bluez.MediaPlayer1.Next", $output);
+    return $output;
+}
+
+function prevTrack() {
+    $output = array();
+    exec("dbus-send --system --print-reply --type=method_call --dest=org.bluez /org/bluez/hci0/dev_4C_32_75_AD_98_24/player0 org.bluez.MediaPlayer1.Previous", $output);
+    return $output;
+}
+
 switch ($_GET["command"]) {
+    case "next":
+        echo(nextTrack());
+        break;
+    case "prev":
+        echo(prevTrack());
+        break;
     case "info":
     default:
         echo(getMediaInfo());
