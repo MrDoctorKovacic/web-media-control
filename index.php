@@ -75,13 +75,13 @@
       <div class="row justify-content-center">
         <div class="col-lg-10 col-lg-offset-1">
           <div class="row">
-          <div class="col-sm">
+          <div class="col-4">
             <h2><i class="fa fa-2x fa-backward"></i></h2>
           </div>
-          <div class="col-sm">
+          <div class="col-4">
             <h2><i class="fa fa-2x fa-pause"></i></h2>
           </div>
-          <div class="col-sm">
+          <div class="col-4">
             <h2><i class="fa fa-2x fa-forward"></i></h2>
           </div>
           </div>
