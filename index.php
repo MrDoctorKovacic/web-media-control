@@ -35,11 +35,11 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background-color: rgba(0, 0, 0, 0.3);
+        background-color: rgba(0, 0, 0, 0.5);
         z-index: -1;
       }
-      h1, p {
-        font-size: 3.5em;
+      h1, p.lead {
+        font-size: 4.5em;
       }
       .center-absolute {
         text-align: center !important;
