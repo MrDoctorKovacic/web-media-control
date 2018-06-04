@@ -66,8 +66,8 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12 text-center center-absolute">
-          <h1 id="title">A Bootstrap 4 Starter Template</h1>
-          <p class="lead" id="artist">Complete with pre-defined file paths and responsive navigation!</p>
+          <h1 id="title">Nothing Playing</h1>
+          <p class="lead" id="artist"></p>
           <button id="testBtn"></button>
         </div>
       </div>
@@ -97,6 +97,9 @@
       function updateSongInfo(mediaObject) {
         console.log(mediaObject);
         if(mediaObject["Artist"] !== artist || mediaObject["Album"] !== album) {
+          console.log("Refreshing Album Artwork");
+          console.log(mediaObject["Artist"]+ " " + artist);
+          console.log(mediaObject["Album"]+ " " + album);
           getAlbumArtwork(mediaObject["Album"], mediaObject["Artist"]);
         }
 
