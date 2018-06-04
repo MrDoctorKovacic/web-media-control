@@ -34,7 +34,10 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background-color: rgba(0, 0, 0, 0.5);
+        background-color: rgba(0, 0, 0, 0.3);
+      }
+      h1, p {
+        font-size: 3.5em;
       }
       #artist {
         font-style: italics;
@@ -55,7 +58,7 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12 text-center">
-          <h1 class="mt-5" id="title">A Bootstrap 4 Starter Template</h1>
+          <h1 id="title">A Bootstrap 4 Starter Template</h1>
           <p class="lead" id="artist">Complete with pre-defined file paths and responsive navigation!</p>
           <button id="testBtn"></button>
         </div>
