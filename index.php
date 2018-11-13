@@ -112,9 +112,17 @@
     <script>
       var album = "";
       var artist = "";
-      var stauts = "paused";
+      var status = "paused";
+      var wait_update_time = getTime();
 
       setInterval(triggerSongUpdate, 1000);
+
+      function updateButton(fa) {
+          if(wait_update_time < getTime()) {
+            jQuery("#play-pause-toggle").removeClass("fa-pause, fa-play").addClass("fa-"+fa);
+            wait_update_time = getTime()+800;
+          }
+      }
 
       // Force update before interval
       jQuery(".fa.push").on("click", function() {
@@ -143,12 +151,13 @@
       // Pause song
       jQuery("#play-pause-toggle").on("click", function() {
         if(status == "Playing") {
+            updateButton("play");
             $(this).removeClass("fa-pause").addClass("fa-play");
             $.getJSON('media.php?command=pause', function(data) {
                 console.log(data);
             });
         } else if(status == "Paused") {
-            $(this).removeClass("fa-play").addClass("fa-pause");
+            updateButton("pause");
             $.getJSON('media.php?command=play', function(data) {
                 console.log(data);
             });
@@ -176,8 +185,8 @@
             }
         }
 
-        if("playing" in mediaObject) { status = "Playing"; jQuery("#play-pause-toggle").removeClass("fa-play").addClass("fa-pause"); }
-        else if("paused" in mediaObject) { status = "Paused"; jQuery("#play-pause-toggle").removeClass("fa-pause").addClass("fa-play"); }
+        if("playing" in mediaObject) { status = "Playing"; updateButton("pause"); }
+        else if("paused" in mediaObject) { status = "Paused"; updateButton("play"); }
 
         album = mediaObject["Album"];
         artist = mediaObject["Artist"];
