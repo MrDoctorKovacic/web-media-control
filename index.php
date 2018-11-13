@@ -176,8 +176,8 @@
             }
         }
 
-        if("playing" in mediaObject) status = "Playing";
-        else if("paused" in mediaObject) status = "Paused";
+        if("playing" in mediaObject) { status = "Playing"; jQuery("#play-pause-toggle").removeClass("fa-pause").addClass("fa-play"); }
+        else if("paused" in mediaObject) { status = "Paused"; jQuery("#play-pause-toggle").removeClass("fa-play").addClass("fa-pause"); }
 
         album = mediaObject["Album"];
         artist = mediaObject["Artist"];
