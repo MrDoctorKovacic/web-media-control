@@ -164,8 +164,14 @@
       function updateSongInfo(mediaObject) {
         console.log(mediaObject);
         if(mediaObject["Artist"] !== artist || mediaObject["Album"] !== album) {
-          console.log("Refreshing Album Artwork");
-          getAlbumArtwork(mediaObject["Album"], mediaObject["Artist"]);
+            console.log("Refreshing Album Artwork");
+            
+            // Check & set local link if it exists first
+            if("Album_Artwork" in mediaObject) {
+                $("body").css("background-image", "url("+mediaObject["Album_Artwork"]+")");
+            } else {
+                getAlbumArtwork(mediaObject["Album"], mediaObject["Artist"]);
+            }
         }
 
         album = mediaObject["Album"];
