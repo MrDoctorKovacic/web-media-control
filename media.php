@@ -2,10 +2,40 @@
 // Controller for BT media
 
 function getMediaInfo() {
-    $output = array();
-    exec("dbus-send --system --print-reply --type=method_call --dest=org.bluez /org/bluez/hci0/dev_4C_32_75_AD_98_24/player0 org.freedesktop.DBus.Properties.Get string:org.bluez.MediaPlayer1 string:Track", $output);
+    // Output media object
     $media_object = array();
 
+    // Get track info first
+    $output = array();
+    exec("dbus-send --system --print-reply --type=method_call --dest=org.bluez /org/bluez/hci0/dev_4C_32_75_AD_98_24/player0 org.freedesktop.DBus.Properties.Get string:org.bluez.MediaPlayer1 string:Track", $output);
+    $onKey = True;
+    foreach($output as $key => $item) {
+
+        // Only get keys, skip values of this weird array
+        if($onKey) {
+            if (preg_match('/\"(.*?)\"/', $item, $m)) {
+
+                unset($m2);
+
+                // Get the value if we've matched a key
+                preg_match('/\"(.*?)\"/', $output[$key+1], $m2);
+                if(empty($m2)) {
+                    preg_match('/([0-9]*)$/', utf8_encode($output[$key+1]), $m2);
+                }
+
+                $media_object[$m[1]] = $m2[1];
+
+                // Skip next value
+                $onKey = False;
+            }
+        } else {
+            $onKey = True;
+        }
+    }
+
+    // Get media status first
+    $output = array();
+    exec("dbus-send --system --print-reply --type=method_call --dest=org.bluez /org/bluez/hci0/dev_4C_32_75_AD_98_24/player0 org.freedesktop.DBus.Properties.Get string:org.bluez.MediaPlayer1 string:Status", $output);
     $onKey = True;
     foreach($output as $key => $item) {
 
@@ -71,6 +101,12 @@ function prevTrack() {
 }
 
 switch ($_GET["command"]) {
+    case "pause":
+        echo(pause());
+        break;
+    case "play":
+        echo(play());
+        break;
     case "nextTrack":
         echo(nextTrack());
         break;
