@@ -32,17 +32,13 @@ function getMediaInfo() {
     }
 
     // Get local link to album artwork
-    if(in_array("Album", $media_object) && in_array("Artist", $media_object)) {
+    if(array_key_exists("Album", $media_object) && array_key_exists("Artist", $media_object)) {
         $artist_slug = strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $media_object["Artist"])));
         $album_slug = strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $media_object["Album"])));
         $artwork_url = "./artwork/".$artist_slug."/".$album_slug.".jpg";
 
         // Set local link if it exists
-        $handle = curl_init($artwork_url);
-        curl_setopt($handle,  CURLOPT_RETURNTRANSFER, TRUE);
-        $response = curl_exec($handle);
-        $httpCode = curl_getinfo($handle, CURLINFO_HTTP_CODE);
-        if($httpCode == 200) {
+        if(file_exists($artwork_url)) {
             $media_object["Album_Artwork"] = $artwork_url;
         }
     }
