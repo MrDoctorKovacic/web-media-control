@@ -1,6 +1,27 @@
 <?php
 // Controller for BT media
 
+function slugify($string, $replace = array(), $delimiter = '-') {
+    // https://github.com/phalcon/incubator/blob/master/Library/Phalcon/Utils/Slug.php
+    if (!extension_loaded('iconv')) {
+      throw new Exception('iconv module not loaded');
+    }
+    // Save the old locale and set the new locale to UTF-8
+    $oldLocale = setlocale(LC_ALL, '0');
+    setlocale(LC_ALL, 'en_US.UTF-8');
+    $clean = iconv('UTF-8', 'ASCII//TRANSLIT', $string);
+    if (!empty($replace)) {
+      $clean = str_replace((array) $replace, ' ', $clean);
+    }
+    $clean = preg_replace("/[^a-zA-Z0-9\/_|+ -]/", '', $clean);
+    $clean = strtolower($clean);
+    $clean = preg_replace("/[\/_|+ -]+/", $delimiter, $clean);
+    $clean = trim($clean, $delimiter);
+    // Revert back to the old locale
+    setlocale(LC_ALL, $oldLocale);
+    return $clean;
+}
+
 function getMediaInfo() {
     // Output media object
     $media_object = array();
@@ -63,8 +84,8 @@ function getMediaInfo() {
 
     // Get local link to album artwork
     if(array_key_exists("Album", $media_object) && array_key_exists("Artist", $media_object)) {
-        $artist_slug = strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $media_object["Artist"])));
-        $album_slug = strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $media_object["Album"])));
+        $artist_slug = slugify(media_object["Artist"]);
+        $album_slug = slugify($media_object["Album"]);
         $artwork_url = "./artwork/".$artist_slug."/".$album_slug.".jpg";
 
         // Set local link if it exists
