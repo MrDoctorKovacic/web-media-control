@@ -84,7 +84,7 @@ function getMediaInfo() {
 
     // Get local link to album artwork
     if(array_key_exists("Album", $media_object) && array_key_exists("Artist", $media_object)) {
-        $artist_slug = slugify(media_object["Artist"]);
+        $artist_slug = slugify($media_object["Artist"]);
         $album_slug = slugify($media_object["Album"]);
         $artwork_url = "./artwork/".$artist_slug."/".$album_slug.".jpg";
 
