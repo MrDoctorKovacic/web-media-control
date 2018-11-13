@@ -177,7 +177,7 @@
         }
 
         if("playing" in mediaObject) status = "Playing";
-        elif("paused" in mediaObject) status = "Paused";
+        else if("paused" in mediaObject) status = "Paused";
 
         album = mediaObject["Album"];
         artist = mediaObject["Artist"];
