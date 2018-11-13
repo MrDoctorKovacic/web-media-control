@@ -90,7 +90,7 @@
             <h2><i class="fa fa-2x fa-backward push"></i></h2>
           </div>
           <div class="col-3">
-            <h2><i class="fa fa-2x fa-pause push"></i></h2>
+            <h2><i class="fa fa-2x fa-pause push" id="play-pause-toggle"></i></h2>
           </div>
           <div class="col-3">
             <h2><i class="fa fa-2x fa-forward push"></i></h2>
@@ -112,6 +112,7 @@
     <script>
       var album = "";
       var artist = "";
+      var stauts = "paused";
 
       setInterval(triggerSongUpdate, 1000);
 
@@ -140,17 +141,18 @@
       });
 
       // Pause song
-      jQuery(".fa-pause").on("click", function() {
-        $.getJSON('media.php?command=pause', function(data) {
-          console.log(data);
-        });
-      });
-
-      // Play song
-      jQuery(".fa-play").on("click", function() {
-        $.getJSON('media.php?command=play', function(data) {
-          console.log(data);
-        });
+      jQuery("#play-pause-toggle").on("click", function() {
+        if(status = "Playing") {
+            $(this).removeClass("fa-pause").addClass("fa-play");
+            $.getJSON('media.php?command=pause', function(data) {
+                console.log(data);
+            });
+        } elseif(status = "Paused") {
+            $(this).removeClass("fa-play").addClass("fa-pause");
+            $.getJSON('media.php?command=play', function(data) {
+                console.log(data);
+            });
+        }
       });
 
       // Get song info
@@ -173,6 +175,9 @@
                 getAlbumArtwork(mediaObject["Album"], mediaObject["Artist"]);
             }
         }
+
+        if("playing" in mediaObject) status = "Playing";
+        elif("paused" in mediaObject) status = "Paused";
 
         album = mediaObject["Album"];
         artist = mediaObject["Artist"];
