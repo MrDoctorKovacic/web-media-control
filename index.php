@@ -142,12 +142,12 @@
 
       // Pause song
       jQuery("#play-pause-toggle").on("click", function() {
-        if(status = "Playing") {
+        if(status == "Playing") {
             $(this).removeClass("fa-pause").addClass("fa-play");
             $.getJSON('media.php?command=pause', function(data) {
                 console.log(data);
             });
-        } else if(status = "Paused") {
+        } else if(status == "Paused") {
             $(this).removeClass("fa-play").addClass("fa-pause");
             $.getJSON('media.php?command=play', function(data) {
                 console.log(data);
