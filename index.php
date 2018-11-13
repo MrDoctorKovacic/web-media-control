@@ -113,14 +113,16 @@
       var album = "";
       var artist = "";
       var status = "paused";
-      var wait_update_time = getTime();
+      var d = new Date();
+      var wait_update_time = d.getTime();
 
       setInterval(triggerSongUpdate, 1000);
 
       function updateButton(fa) {
-          if(wait_update_time < getTime()) {
+          d = new Date();
+          if(wait_update_time < d.getTime()) {
             jQuery("#play-pause-toggle").removeClass("fa-pause, fa-play").addClass("fa-"+fa);
-            wait_update_time = getTime()+800;
+            wait_update_time = d.getTime()+800;
           }
       }
 
