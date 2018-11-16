@@ -201,23 +201,27 @@
       function getAlbumArtwork(album, artist) {
         var searchQuery = album+" "+artist+" cover";
         console.log(searchQuery);
-        $.ajax({
-            type: "GET",
-            dataType: "jsonp",
-            url: "https://www.googleapis.com/customsearch/v1",
-            data: {
-                key: "AIzaSyBkLyJ_C764-xzcMNomj5YUOI-jqzCoVgo",
-                cx: "004286675445984025592:ypgpkv9fjd4",
-                filter: "1",
-                searchType: "image",
-                q: searchQuery
-            }, async: false
-        }).done(function(data) {
-            console.log(data);
-            var googleResults = data.items;
-            itemIndex = 0;
-            $("body").css("background-image", "url("+data.items[itemIndex].link+")");
-        });
+		if(album !== undefined && artist !== undefined) {
+			$.ajax({
+				type: "GET",
+				dataType: "jsonp",
+				url: "https://www.googleapis.com/customsearch/v1",
+				data: {
+					key: "AIzaSyBkLyJ_C764-xzcMNomj5YUOI-jqzCoVgo",
+					cx: "004286675445984025592:ypgpkv9fjd4",
+					filter: "1",
+					searchType: "image",
+					q: searchQuery
+				}, async: false
+			}).done(function(data) {
+				console.log(data);
+				var googleResults = data.items;
+				itemIndex = 0;
+				$("body").css("background-image", "url("+data.items[itemIndex].link+")");
+			});
+		} else {
+			return null;
+		}
     }
     </script>
 
